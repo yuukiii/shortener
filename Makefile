@@ -1,6 +1,6 @@
 #Dockerfile vars
 alpver=3.12
-kctlver=1.18.0
+kctlver=1.19.3
 
 #vars
 IMAGENAME=my_kubectl

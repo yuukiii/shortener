@@ -1,0 +1,27 @@
+version: '3'
+services:
+  app:
+    container_name: spring-redis
+    image: spring-redis:v1
+    build: .
+    links:
+      - redis
+      - web
+    ports:
+      - "8080:8080"
+    volumes:
+      - ~/docker/redis:/redis-service/logs
+  redis:
+    container_name: redis
+    image: redis:v1
+    build: ./redis
+    hostname: redis
+    ports:
+      - "6379:6379"
+  web:
+    container_name: web
+    image: sample-react
+    build: ./web
+    hostname: reactsmaple
+    ports:
+      - "3003:3000"
