@@ -12,10 +12,11 @@ MAKECMDGOALS=help build push all
 .DEFAULT_GOAL := all
 
 build:
-	    @docker build --pull --build-arg ALP_VER=${alpver} --build-arg KCTL_VER=${kctlver} -t ${IMAGEFULLNAME} .
+	    @docker build .
 
 push:
-	    @docker push ${IMAGEFULLNAME}
+	    #@docker push ${IMAGEFULLNAME}
+	    @docker-compose up
 
 all: build push
 
