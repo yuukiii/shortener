@@ -113,6 +113,20 @@ public class RestShortenerServiceImpl implements ShortenerService {
         return shortURL;
     }
 
+    @Override
+    public void cacheURL(String longURL) {
+        String shortURL = "";
+        if (validateURL(longURL)) {
+            longURL = sanitizeURL(longURL);
+            if (valueMap.containsKey(longURL)) {
+                shortURL = domain + "/" + valueMap.get(longURL);
+            } else {
+                shortURL = domain + "/" + getKey(longURL);
+            }
+        }
+        urlService.saveOrUpdate(new URL().setUrl(longURL).setKey(shortURL));
+    }
+
     private boolean validateURL(String longURL) {
         return true;
     }

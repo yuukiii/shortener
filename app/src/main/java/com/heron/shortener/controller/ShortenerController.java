@@ -14,6 +14,7 @@ import java.io.UnsupportedEncodingException;
 import java.net.URLDecoder;
 import java.nio.charset.StandardCharsets;
 
+import static com.heron.shortener.common.IConstants.CACHE_URL;
 import static com.heron.shortener.common.IConstants.PROCESS_URL;
 
 @RestController
@@ -45,6 +46,12 @@ public class ShortenerController {
             dcodedUrl = decode(url);
             log.info("DECODED URL: " + url);
             String shortUrl = (String) producerTempalte.requestBody(PROCESS_URL, url);
+            try{
+                producerTempalte.requestBody(CACHE_URL, url);
+            }catch(Exception ex){
+                log.info("did not cache url");
+                log.info(ex.getLocalizedMessage());
+            }
             return ResponseEntity.status(HttpStatus.OK).body(responseBuilder.buildResponse(STATUS_SUCCESS, shortUrl));
 
         } catch (UnsupportedEncodingException e) {

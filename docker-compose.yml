@@ -33,5 +33,3 @@ services:
       - "8080:8080"
     links:
       - redis
-    environment:
-      - REDIS_URL=redis://cache
