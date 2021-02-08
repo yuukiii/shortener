@@ -25,6 +25,7 @@ public class UrlRoute extends RouteBuilder {
                 .marshal() //
                 .json(JsonLibrary.Jackson) //
                 .log(LoggingLevel.INFO, "****** URL IN THE ROUTE", simple("${body} ").getText())//
-                .bean("restShortenerServiceImpl", "shortenURL");
+                .bean("restShortenerServiceImpl", "shortenURL")
+        ;
     }
 }

@@ -110,7 +110,6 @@ public class RestShortenerServiceImpl implements ShortenerService {
                 shortURL = domain + "/" + getKey(longURL);
             }
         }
-        urlService.saveOrUpdate(new URL().setUrl(longURL).setKey(shortURL));
         return shortURL;
     }
 

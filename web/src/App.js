@@ -15,7 +15,7 @@ class App extends Component {
     handleSubmit = event => {
         event.preventDefault()
         const url = this.state.url;
-        axios.post(`http://localhost:8080/url/shortener/postShort`, JSON.stringify(url))
+        axios.post(`http://10.0.0.99:8080/url/shortener/postShort`, JSON.stringify(url))
             .then((resp) => {
                 console.log(resp.data)
                 const shortenedUrl = resp.data.message.message

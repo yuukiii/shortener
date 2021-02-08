@@ -9,8 +9,8 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.heron.shortner</groupId>
-    <artifactId>shortner</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <artifactId>shortener</artifactId>
+    <version>0.0.1</version>
     <name>shortener</name>
     <description>URL Shortener app</description>
     <properties>
@@ -74,7 +74,6 @@
             <artifactId>springfox-boot-starter</artifactId>
             <version>3.0.0</version>
         </dependency>
-
     </dependencies>
     <dependencyManagement>
         <dependencies>

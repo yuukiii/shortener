@@ -1,23 +1,22 @@
 version: '3'
 services:
-  app:
-    container_name: spring-redis
-    image: spring-redis:v1
-    build: .
-    links:
-      - redis
-      - web
-    ports:
-      - "8080:8080"
-    volumes:
-      - ~/docker/redis:/redis-service/logs
   redis:
-    container_name: redis
-    image: redis:v1
+    container_name: cache
+    image: redis:redis
     build: ./redis
     hostname: redis
     ports:
       - "6379:6379"
+    expose:
+      - 6379
+
+  web-typescript:
+    container_name: web-typescript
+    image: sample-react-typescript
+    build: ./type-www
+    hostname: react-typescript-sample
+    ports:
+      - "3004:3000"
   web:
     container_name: web
     image: sample-react
@@ -25,3 +24,14 @@ services:
     hostname: reactsmaple
     ports:
       - "3003:3000"
+  app:
+    container_name: spring-app
+    image: spring-shortener
+    build: ./app
+    hostname: shortener
+    ports:
+      - "8080:8080"
+    links:
+      - redis
+    environment:
+      - REDIS_URL=redis://cache
