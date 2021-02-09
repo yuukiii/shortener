@@ -13,9 +13,12 @@ MAKECMDGOALS=help build push all
 
 build:
 	    @docker build .
+	    @docker-compose build test
 
 push:
 	    @docker-compose up
+
+
 
 all: build push
 
@@ -35,3 +38,5 @@ server: push
 # `make test` will be used after `make setup` in order to run
 # your test suite.
 test:
+	@docker-compose run --rm test
+

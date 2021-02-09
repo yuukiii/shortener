@@ -33,3 +33,13 @@ services:
       - "8080:8080"
     links:
       - redis
+
+  test:
+    container_name: sample-react-test
+    build: ./web
+    volumes:
+      - '.:/web/app'
+      - '/web/app/node_modules'
+    environment:
+      - CI=true
+    command: npm test

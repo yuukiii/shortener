@@ -1,6 +1,5 @@
-package com.heron.shortner.shortner;
+package com.heron.shortener;
 
-import com.heron.shortener.ShortenerApplication;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.boot.test.context.SpringBootTest;
