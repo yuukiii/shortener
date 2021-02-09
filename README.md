@@ -15,6 +15,7 @@ in Docker.
 
 - Clone the project
 - Configure Redis application.yml
+- Start Docker
 - Build the project
 ```
 mvn clean install
