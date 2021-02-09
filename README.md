@@ -18,9 +18,12 @@ in Docker.
 - Start Docker
 - Build the project
 ```
+cd app/
 mvn clean install
 ```
-- Run the application
+- Run the application alone
+    You should have a redis db up and configured 
+    with the host name in the application.properties
 ```
 java -jar target/shortener-0.0.1.jar
 ```
@@ -31,11 +34,26 @@ java -jar target/shortener-0.0.1.jar
 
 - Build the app project
 ```
-cd /app
+cd app/
 mvn clean install
 cd ..
 ```
 - Run using docker-compose
 ```
 docker-compose up --build 
+```
+
+## Using makefile
+
+- Run the entire solution
+```
+make all
+```
+- Run the setup 
+  ``` 
+make build
+  ```
+- Run the test
+```
+make test
 ```
