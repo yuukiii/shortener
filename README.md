@@ -29,9 +29,11 @@ java -jar target/shortener-0.0.1.jar
 
 ## Using docker
 
-- Build the project
+- Build the app project
 ```
+cd /app
 mvn clean install
+cd ..
 ```
 - Run using docker-compose
 ```
