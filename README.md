@@ -49,10 +49,10 @@ docker-compose up --build
 ```
 make all
 ```
-- Run the setup 
-  ``` 
+- Run the setup
+``` 
 make build
-  ```
+```
 - Run the test
 ```
 make test
