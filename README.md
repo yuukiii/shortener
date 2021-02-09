@@ -8,6 +8,7 @@ in Docker.
 * Java 11
 * Apache Maven 3.5.0 or higher
 * Node
+* Docker
 
 
 ## How to Run
