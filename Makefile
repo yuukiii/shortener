@@ -1,26 +1,12 @@
-#Dockerfile vars
-alpver=3.12
-kctlver=1.19.3
-
 #vars
-IMAGENAME=my_kubectl
-REPO=my.registry
-IMAGEFULLNAME=${REPO}/${IMAGENAME}:${KUBECTL_VERSION}
-MAKECMDGOALS=help build push all
-.PHONY: $(MAKECMDGOALS)
 
-.DEFAULT_GOAL := all
 
 build:
-	    @docker build .
-	    @docker-compose build test
 
 push:
-	    @docker-compose up
 
 
-
-all: build push
+all:
 
 # `make setup` will be used after cloning or downloading to fulfill
 # dependencies, and setup the the project in an initial state.
@@ -32,11 +18,11 @@ setup: build
 
 # `make server` will be used after `make setup` in order to start
 # an http server process that listens on any unreserved port
-#	of your choice (e.g. 8080). 
+#	of your choice (e.g. 8080).
 server: push
 
 # `make test` will be used after `make setup` in order to run
 # your test suite.
 test:
-	@docker-compose run --rm test
+
 

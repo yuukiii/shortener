@@ -34,37 +34,10 @@ public class ShortenerController {
     @GetMapping(value = "getShort")
     public ResponseEntity<Response> getShotURL(String id) {
         //TODO: get from cache
-        return ResponseEntity.status(HttpStatus.OK).body(responseBuilder.buildResponse(STATUS_SUCCESS, "get short url here"));
     }
 
     @PostMapping(value = "postShort")
     public ResponseEntity<Response> generateShotURL(@RequestBody String url) {
-        log.info("RAW URL TO BE SHORTENDED: " + url);
-
-        String dcodedUrl = "";
-        try {
-            dcodedUrl = decode(url);
-            log.info("DECODED URL: " + url);
-            String shortUrl = (String) producerTempalte.requestBody(PROCESS_URL, url);
-            try{
-                producerTempalte.requestBody(CACHE_URL, url);
-            }catch(Exception ex){
-                log.info("did not cache url");
-                log.info(ex.getLocalizedMessage());
-            }
-            return ResponseEntity.status(HttpStatus.OK).body(responseBuilder.buildResponse(STATUS_SUCCESS, shortUrl));
-
-        } catch (UnsupportedEncodingException e) {
-            e.printStackTrace();
-            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(responseBuilder.buildResponse(STATUS_FAILURE, e.getLocalizedMessage()));
-
-        }
-
-
+        //TODO
     }
-
-    private String decode(String value) throws UnsupportedEncodingException {
-        return URLDecoder.decode(value, StandardCharsets.UTF_8.toString());
-    }
-
 }

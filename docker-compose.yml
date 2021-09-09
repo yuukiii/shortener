@@ -14,14 +14,14 @@ services:
   web-typescript:
     container_name: web-typescript
     image: sample-react-typescript
-    build: ./type-www
+    build: react-type-www
     hostname: react-typescript-sample
     ports:
       - "3004:3000"
   web:
     container_name: web
     image: sample-react
-    build: ./web
+    build: angular-type-www
     hostname: reactsmaple
     ports:
       - "3003:3000"
@@ -37,7 +37,7 @@ services:
 
   test:
     container_name: sample-react-test
-    build: ./web
+    build: angular-type-www
     volumes:
       - '.:/web/app'
       - '/web/app/node_modules'

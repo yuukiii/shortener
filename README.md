@@ -1,6 +1,7 @@
 ## SHORTNER
 
-This is a sample spring-boot project to demonstrate redis cache with spring-boot, and a react front ends containerized 
+This is a sample spring-boot project to demonstrate redis cache with spring-boot, react-typescript 
+and angular-typescript front ends containerized 
 in Docker.
 
 
